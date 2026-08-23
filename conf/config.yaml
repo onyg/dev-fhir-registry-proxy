@@ -1,0 +1,26 @@
+storage: /verdaccio/storage
+
+web:
+  enable: true
+  title: Local FHIR Package Registry
+
+auth:
+  htpasswd:
+    file: /verdaccio/storage/htpasswd
+    max_users: 1
+
+uplinks:
+  fhir:
+    url: https://packages.simplifier.net/
+
+packages:
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: fhir
+
+log:
+  type: stdout
+  format: pretty
+  level: http
