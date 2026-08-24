@@ -7,7 +7,9 @@ web:
 auth:
   htpasswd:
     file: /verdaccio/storage/htpasswd
-    max_users: 1
+    max_users: -1
+    algorithm: bcrypt
+    rounds: 10
 
 uplinks:
   fhir:
